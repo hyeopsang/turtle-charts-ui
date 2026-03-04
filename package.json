@@ -9,12 +9,20 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
-    "preview-storybook": "turbo run preview-storybook"
+    "preview-storybook": "turbo run preview-storybook",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.2",
     "prettier": "^3.2.5",
     "turbo": "^2.8.13"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,css,md}": [
+      "prettier --write"
+    ]
   },
   "packageManager": "pnpm@8.15.6",
   "name": "design-system"

@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@source "../stories/**/*.{ts,tsx,js,jsx,mdx}";
+
+@source "../../../packages/ui/src/**/*.{ts,tsx,js,jsx}";

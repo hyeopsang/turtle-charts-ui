@@ -3,6 +3,11 @@
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "@turtle/ui": ["../../packages/ui/src/index.ts"],
+      "@turtle/ui/*": ["../../packages/ui/src/*"]
+    }
   }
 }
