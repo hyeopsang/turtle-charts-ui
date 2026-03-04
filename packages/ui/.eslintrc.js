@@ -9,6 +9,8 @@ module.exports = {
         "**/src/test/**",
         "**/src/lib/**",
         "**/.storybook/**",
+        "**/vitest.config.*",
+        "**/vite.config.*",
       ],
       rules: {
         "import/no-extraneous-dependencies": "off",
