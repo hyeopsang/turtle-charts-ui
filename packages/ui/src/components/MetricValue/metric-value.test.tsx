@@ -3,18 +3,17 @@ import { render, screen } from "@testing-library/react";
 import { MetricValue } from "./metric-value";
 
 describe("MetricValue", () => {
-  it("renders placeholder when value is null", () => {
+  it("null이면 placeholder가 렌더링됨.", () => {
     render(<MetricValue value={null} sign="auto" />);
     expect(screen.getByText("—")).toBeInTheDocument();
   });
 
-  it("formats number (default) in ko-KR with thousands separators", () => {
+  it("기본 number 포맷이 적용됨.", () => {
     render(<MetricValue value={1234567} sign="auto" locale="ko-KR" />);
-    const el = screen.getByText("1,234,567");
-    expect(el).toBeInTheDocument();
+    expect(screen.getByText("1,234,567")).toBeInTheDocument();
   });
 
-  it("formats currency when format=currency and currency provided", () => {
+  it("currency + KRW 설정 시 통화 포맷이 적용됨.", () => {
     render(
       <MetricValue
         value={12000}
@@ -29,7 +28,7 @@ describe("MetricValue", () => {
     expect(el).toBeInTheDocument();
   });
 
-  it("falls back to number formatting when format=currency but currency missing", () => {
+  it("currency 설정이 없으면 number로 fallback 됨.", () => {
     render(
       <MetricValue
         value={12000}
@@ -41,7 +40,7 @@ describe("MetricValue", () => {
     expect(screen.getByText("12,000")).toBeInTheDocument();
   });
 
-  it("formats percent ratio (value=0.123 -> 12.3%)", () => {
+  it("percent 포맷이 적용됨.", () => {
     render(
       <MetricValue
         value={0.123}
@@ -55,7 +54,7 @@ describe("MetricValue", () => {
     expect(screen.getByText("12.3%")).toBeInTheDocument();
   });
 
-  it("formats percent point (value=12.3 -> 12.3%)", () => {
+  it("percent(point) 포맷이 적용됨(12.3 → 12.3%).", () => {
     render(
       <MetricValue
         value={12.3}
@@ -69,7 +68,7 @@ describe("MetricValue", () => {
     expect(screen.getByText("12.3%")).toBeInTheDocument();
   });
 
-  it("adds title when compact=true and titleFormat=auto", () => {
+  it("compact + titleFormat=auto면 title에 full 값이 들어감.", () => {
     const { container } = render(
       <MetricValue
         value={1234567}
@@ -85,7 +84,7 @@ describe("MetricValue", () => {
     expect(dataEl?.getAttribute("title")).toBe("1,234,567");
   });
 
-  it("signDisplay=always shows plus sign for positive numbers (en-US)", () => {
+  it("signDisplay=always면 양수에도 +가 붙음.", () => {
     render(
       <MetricValue
         value={12000}
@@ -98,7 +97,7 @@ describe("MetricValue", () => {
     expect(screen.getByText("+12,000")).toBeInTheDocument();
   });
 
-  it("sets value attribute with the normalized numeric value", () => {
+  it("value 속성에 정규화된 값이 들어감.", () => {
     render(
       <MetricValue
         value={12.3}
