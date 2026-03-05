@@ -1,6 +1,14 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   extends: ["@repo/eslint-config/react.js"],
+  rules: {
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-confusing-void-expression": "off",
+    "@typescript-eslint/no-invalid-void-type": "off",
+    "@typescript-eslint/no-unnecessary-condition": "warn",
+    "react/jsx-sort-props": "off",
+    "no-nested-ternary": "off",
+  },
   overrides: [
     {
       files: [

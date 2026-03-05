@@ -4,6 +4,7 @@
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "strictNullChecks": true,
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals"],
+    "lib": ["ES2021", "DOM", "DOM.Iterable"]
   }
 }

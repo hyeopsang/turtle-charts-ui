@@ -9,8 +9,9 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "turbo run build --filter=docs^... && changeset publish",
-    "preview-storybook": "turbo run preview-storybook",
-    "prepare": "husky"
+    "pyreview-storbook": "turbo run preview-storybook",
+    "prepare": "husky",
+    "test": "pnpm -r test"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
