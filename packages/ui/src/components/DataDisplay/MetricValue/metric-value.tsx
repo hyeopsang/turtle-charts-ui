@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { cn } from "../../lib/cn";
+import { cn } from "../../../lib/cn";
 
 type Format = "number" | "currency" | "percent";
 type Sign = NonNullable<Intl.NumberFormatOptions["signDisplay"]>;
